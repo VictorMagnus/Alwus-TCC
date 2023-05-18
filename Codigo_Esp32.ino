@@ -4,9 +4,9 @@
 #include < ArduinoJson.h >             //importa biblioteca para colocar informação no formato json, utilizado no firebase (intalar versão 5 para não ocorrer conflitos futuros)
 #include < string >
 #define WIFI_SSID "Internet"                  // Definir o nome da rede wifi 
-#define WIFI_PASSWORD "987654321"             // Definir a senha da rede wifi 
+#define WIFI_PASSWORD "xxxxxxxxx"             // Definir a senha da rede wifi 
 #define FIREBASE_HOST "https://alwus-b6978-default-rtdb.firebaseio.com"    // Colocar o link do banco de dados 
-#define FIREBASE_AUTH "09vAQKV1OOGnd98TxFjMGwaxRxm1mTpQozHDiCMQ"   // Colocar a senha do banco de dados
+#define FIREBASE_AUTH "xxxxxxxxxxxxxxxxxxxxxxx"   // Colocar a senha do banco de dados
 #define led 2
 #define botao 23
 RTC_DS3231 rtc;
