@@ -1,0 +1,217 @@
+@font-face {
+  font-family: 'hug me';
+  src: url('fontes/Hug\ Me\ Tight\ -\ OTF.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'wrong';
+  src: url('fontes/Wrong\ Delivery.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'andria';
+  src: url('fontes/Andria.ttf') format('truetype');
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  text-align: center;
+  background-color: rgba(66, 26, 80, 255);
+  height: 100%;
+}
+
+h1 {
+  color: rgba(251, 213, 16, 255);
+}
+
+header {
+  height: 80px;
+  margin: 0;
+  border: none;
+  background-color: rgba(66, 26, 80, 255);
+}
+
+@media(max-width: 1080px) {
+  body {
+    overflow-y: scroll;
+  }
+
+}
+
+#logoprin img {
+  width: 100px;
+  height: 80px;
+  float: left;
+}
+
+#info {
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(66, 26, 80, 255);
+  color: rgba(255, 255, 255, 0.849);
+}
+
+h4 {
+  margin-bottom: 18px;
+  margin-top: 20px;
+  position: relative;
+  top: -3px;
+}
+
+h5 {
+  margin-bottom: 6px;
+  margin-top: -20px;
+}
+
+#insert,
+#update {
+  background-color: rgba(251, 213, 16, 255);
+  border: none;
+  color: purple;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 80px;
+  transition: 0.3s;
+  outline: 0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#insert:hover,
+#update:hover {
+  background-color: rgb(153, 87, 153);
+  color: white;
+}
+
+input {
+  width: 120px;
+  height: 20px;
+  position: relative;
+  bottom: -3px;
+}
+
+input[type=text] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #555;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input[type=text]:focus {
+  outline: none;
+  border-color: rgba(251, 213, 16, 255);
+  box-shadow: 0 0 2px rgba(251, 213, 16, 255);
+}
+
+input[type=number] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #555;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input[type=number]:focus {
+  outline: none;
+  border-color: rgba(251, 213, 16, 255);
+  box-shadow: 0 0 2px rgba(251, 213, 16, 255);
+}
+
+#botao-liga-desliga {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+#botao-liga-desliga:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f00;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+
+#botao-liga-desliga:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #0f0;
+  transform: translateX(100%);
+  transition: transform 0.5s;
+}
+
+#botao-liga-desliga.ligado:before {
+  transform: translateX(0%);
+}
+
+#botao-liga-desliga.desligado:after {
+  transform: translateX(0%);
+}
+
+#pata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+#btn {
+  width: 100px;
+  height: 100px;
+  margin-right: 30px;
+}
+
+#pata-status {
+  margin: 0;
+  font-size: 24px;
+}
+
+#pata h1 {
+  margin-top: 80px;
+}

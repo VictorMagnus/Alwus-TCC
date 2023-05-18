@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alwus</title>
+    <link rel="shortcut icon" href="imagens/Aba_transparente.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styprin.css">
+</head>
+<header>
+    <div id="logoprin">
+        <a href="home.html">
+            <img src="imagens/logo.png">
+        </a>
+
+    </div>
+
+</header>
+
+<body>
+
+    <div id="info">
+        <h1>Faça o seu pet feliz</h1>
+
+        <h4>Qual a alimentação? 1ª ou 2ª</h4>
+        <input id="enterID" type="number" placeholder="1ª (manhã) - 2ª (tarde)">
+        <h4>Porção</h4><br>
+        <h5>( Recomendado: 200g , 300g , 400g )</h5>
+        <input id="enterPorcao" type="number" placeholder="200g, 300g, 400g"> <br><br>
+        <h4>Horas</h4>
+        <input id="enterHora" type="number" placeholder="Somente horas">
+
+        <h4>Minutos</h4>
+        <input id="enterMin" type="number" placeholder="Somente minutos"> <br><br>
+
+        <button id="insert">Salvar</button>
+        <button id="update">Atualizar</button><br>
+        <div id="pata">
+            <h1>Acionamento manual</h1>
+            <div class="container">
+                <img id="btn" src="imagens/PataVermellha.png" data-state="off">
+                <p id="pata-status">Desligado</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBRko-LEvWdcVNMSCAotfmEc9AbnwFTUEQ",
+            authDomain: "alwus-b6978.firebaseapp.com",
+            databaseURL: "https://alwus-b6978-default-rtdb.firebaseio.com",
+            projectId: "alwus-b6978",
+            storageBucket: "alwus-b6978.appspot.com",
+            messagingSenderId: "846176392366",
+            appId: "1:846176392366:web:092d72b2016f06d3d4093f",
+            measurementId: "G-2CR2FHLHGQ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+        const db = getDatabase();
+
+        var enterID = document.querySelector("#enterID");
+        var enterHora = document.querySelector("#enterHora");
+        var enterMin = document.querySelector("#enterMin");
+        var enterPorcao = document.querySelector("#enterPorcao");
+
+        var insertBtn = document.querySelector("#insert");
+        var updateBtn = document.querySelector("#update");
+        var btn = document.querySelector("#btn");
+        var pataStatus = document.getElementById("pata-status");
+
+        console.log(btn);
+        pataStatus.style.color = "red";
+
+        btn.addEventListener("click", function () {
+            console.log("clicou")
+            var estado = btn.getAttribute('data-state');
+
+            //função para trocar o estado da imagem 
+            if (estado == 'off') {
+
+
+                set(ref(db, "rele"), {
+                    rele: ('on')
+
+                })
+
+                estado = 'on';
+                btn.setAttribute('data-state', estado);
+                document.querySelector("#btn").setAttribute("src", "imagens/PataVerde.png");
+                pataStatus.innerText = "Ligado";
+                pataStatus.style.color = "green";
+
+            } else {
+                set(ref(db, "rele"), {
+                    rele: ('off')
+
+                })
+
+                estado = 'off';
+                btn.setAttribute('data-state', estado);
+                document.querySelector("#btn").setAttribute("src", "imagens/PataVermellha.png");
+                pataStatus.innerText = "Desligado";
+                pataStatus.style.color = "red";
+            }
+        })
+
+        //função para inserir novos dados no firebase
+        function InsertData() {
+            set(ref(db, "alimenta/" + enterID.value), {
+                ID: parseInt(enterID.value),
+                hora: parseInt(enterHora.value),
+                minuto: parseInt(enterMin.value),
+                Porcao: parseInt(enterPorcao.value),
+
+            })
+                .then(() => {
+                    alert("Horário adicionado!");
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+
+        //função para atualizar informações ja existentes no firebase
+        function UpdateData() {
+            update(ref(db, "alimenta/" + enterID.value), {
+                hora: parseInt(enterHora.value),
+                minuto: parseInt(enterMin.value),
+                Porcao: parseInt(enterPorcao.value)
+            })
+                .then(() => {
+                    alert("Horário atualizado!");
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+        insertBtn.addEventListener('click', InsertData);
+        updateBtn.addEventListener('click', UpdateData);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'hug me';
+  src: url('fontes/Hug\ Me\ Tight\ -\ OTF.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'wrong';
+  src: url('fontes/Wrong\ Delivery.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'andria';
+  src: url('fontes/Andria.ttf') format('truetype');
+}
+
+* {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: rgba(66, 26, 80, 255);
+
+
+}
+
+img {
+  width: 350px;
+  height: auto;
+  position: relative;
+  margin-top: auto;
+
+}
+
+.imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  justify-content: center;
+  /* ajusta a propriedade justify-content */
+  align-items: center;
+  /* ajusta a propriedade align-items */
+  bottom: 40%;
+}
+
+p1 {
+  position: absolute;
+  font-size: 60px;
+  font-family: 'andria', times, serif;
+  font-weight: normal;
+  color: rgba(251, 213, 16, 255);
+  left: 10px;
+}
+
+p2 {
+  font-size: 35px;
+  font-family: 'andria', times, serif;
+  color: rgba(251, 213, 16, 255);
+  position: absolute;
+  top: 60px;
+  left: 50px;
+}
+
+@media(max-width: 1080px) {
+  p1 {
+    font-size: 50px;
+  }
+
+  p2 {
+    font-size: 26px
+  }
+}
+
+.bot {
+  position: relative;
+  bottom: 35%;
+  /* ajusta a propriedade bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35%;
+  background-color: rgba(251, 213, 16, 255);
+  width: 200px;
+  height: 60px;
+  border-radius: 60px;
+  color: rgba(66, 26, 80, 255);
+  font-family: 'hug me', times, serif;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  border-top: 0, 5px solid rgba(255, 255, 255, 0.35);
+  border-left: rgb(255, 255, 255, 0.35);
+  padding-left: 40px;
+  transition: 0.5s;
+  font-size: 15px;
+}
+
+.bot:hover {
+  padding-left: 0px;
+  padding-right: 40px;
+  color: rgba(66, 26, 80, 255);
+}
+
+.bot span {
+  position: absolute;
+  left: 5px;
+  width: 50px;
+  height: 50px;
+  background: #800080;
+  border-radius: 50%;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(251, 213, 16, 255);
+  font-size: 1.5em;
+}
+
+.bot:hover span {
+  left: calc(100% - 55px);
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+#rod {
+  position: absolute;
+  color: white;
+
+}
